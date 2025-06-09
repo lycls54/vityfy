@@ -1,16 +1,42 @@
-﻿{
-  "extends": ["next/core-web-vitals", "prettier"],
-  "plugins": ["@typescript-eslint"],
+{
+  "root": true,
+  "extends": [
+    "next/core-web-vitals",
+    "next/typescript"
+  ],
   "rules": {
-    "prefer-const": "error",
-    "no-unused-vars": "off",
-    "@typescript-eslint/no-unused-vars": "warn",
+    "@typescript-eslint/no-unused-vars": "error",
     "@typescript-eslint/no-explicit-any": "warn",
-    "react/display-name": "off",
-    "react/no-unescaped-entities": "off",
-    "react/jsx-no-target-blank": "error",
-    "react-hooks/exhaustive-deps": "warn",
-    "@next/next/no-img-element": "error",
-    "@next/next/no-page-custom-font": "error"
-  }
+    "prefer-const": "error",
+    "no-var": "error",
+    "no-console": "warn",
+    "react-hooks/exhaustive-deps": "error",
+    "react/no-unescaped-entities": "off"
+  },
+  "ignorePatterns": [
+    "node_modules/",
+    ".next/",
+    "out/",
+    "build/",
+    "dist/"
+  ],
+  "overrides": [
+    {
+      "files": ["packages/**/*.ts", "packages/**/*.tsx"],
+      "extends": [
+        "@typescript-eslint/recommended"
+      ],
+      "rules": {
+        "@typescript-eslint/no-unused-vars": "error",
+        "@typescript-eslint/no-explicit-any": "warn"
+      }
+    },
+    {
+      "files": ["apps/**/*.ts", "apps/**/*.tsx"],
+      "extends": [
+        "next/core-web-vitals",
+        "next/typescript"
+      ]
+    }
+  ]
 }
